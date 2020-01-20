@@ -8,7 +8,7 @@
 <a href="https://wheeldemo.gamesbytim.com"><strong>wheeldemo.gamesbytim.com</strong></a>
 </p>
 
-Here you'll find a tech demo of the wheel I intend to use for Wheel of Fortune for Web, the upcoming replacement for Wheel of Fortune for PowerPoint.
+Here you'll find a tech demo of the wheel I intend to use for Wheel of Fortune for Web, the upcoming replacement for [Wheel of Fortune for PowerPoint](https://www.gamesbytim.com/2012/01/wheel-of-fortune.html).
 
 Wheel of Fortune for PowerPoint's wheel took two clicks - one to spin, and one to stop. This wheel needs just one click, and hold it to charge the new strength meter!
 
@@ -16,8 +16,8 @@ Wheel of Fortune for PowerPoint's wheel took two clicks - one to spin, and one t
 
 * More sense of control over the wheel (although the outcome's still completely random)
 * Has inertia - will slow down as it spins
-* Uses the crypto-random API to securely determine where the wheel stops
-* Can programatically tell what value the wheel landed at
+* Uses the [crypto-random API](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues) to securely determine where the wheel stops
+* Can programmatically tell what value the wheel landed at
 
 ## Take the survey!
 
