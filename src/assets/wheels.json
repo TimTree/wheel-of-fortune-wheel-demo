@@ -1,0 +1,6 @@
+{
+    "normalRound2019": {
+        "values": [2500, 500, 900, 700, 600, 650, 500, 700, "10000", 600, 550, 500, 600, "Bankrupt", 650, "Free_Play", 700, "Lose_a_Turn", 800, 500, 650, 500, 900, "Bankrupt"],
+        "colors": [null, "Green", "Yellow", "Red", "Blue", "Orange", "Purple", "Yellow", null, "Red", "Blue", "Green", "Pink", null, "Purple", null, "Blue", null, "Red", "Purple", "Pink", "Green", "Orange", null]
+    }
+}
