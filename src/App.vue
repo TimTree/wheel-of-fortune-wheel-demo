@@ -84,6 +84,20 @@ html {
   background-repeat: no-repeat;
   cursor: pointer;
 }
+
+/* When an element animates in Chrome/Safari, any element with
+a z-index higher than the element being animated becomes blurry.
+
+To minimize (but not fully fix) the blur in Chrome, append this
+class to the animated element so every other element's z-index
+is lower.
+
+Don't ask me why this happens. I'm just as annoyed as you are.
+Worse, there's no known way to remove the blur on desktop Safari
+with non-retina displays. */
+.workaroundChromeBlur {
+  z-index: 9999;
+}
 </style>
 
 <script>

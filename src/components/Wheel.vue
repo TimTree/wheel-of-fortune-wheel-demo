@@ -35,7 +35,8 @@
     </div>
     <div class="wheelTicker">
     </div>
-    <div class="wheelOutline" v-bind:class="{charging : isStrengthening, noClick : isSpinning}"
+    <div class="wheelOutline" v-bind:class="{charging : isStrengthening, noClick : isSpinning,
+     workaroundChromeBlur : isSpinning}"
      v-touch:start="mouseDown" v-touch:end="spin" ref="wheelOutline">
       <div class="wedges" v-for="wedge in generateWedges()" v-bind:key="wedge.id">
         <img :src="wedge" />
@@ -185,7 +186,7 @@ export default {
     border-left: 13px solid transparent;
     border-right: 13px solid transparent;
     border-top: 39px solid #f8f8f8;
-    z-index:2;
+    z-index:10000;
 
   }
 
