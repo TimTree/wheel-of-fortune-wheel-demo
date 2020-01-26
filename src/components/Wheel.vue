@@ -312,100 +312,10 @@ export default {
     text-align:center;
   }
 
-  .wedges:nth-child(1) {
-    transform:rotate(7.5deg);
-  }
-
-  .wedges:nth-child(2) {
-    transform:rotate(22.5deg);
-  }
-
-  .wedges:nth-child(3) {
-    transform:rotate(37.5deg);
-  }
-
-  .wedges:nth-child(4) {
-    transform:rotate(52.5deg);
-  }
-
-  .wedges:nth-child(5) {
-    transform:rotate(67.5deg);
-  }
-
-  .wedges:nth-child(6) {
-    transform:rotate(82.5deg);
-  }
-
-  .wedges:nth-child(7) {
-    transform:rotate(97.5deg);
-  }
-
-  .wedges:nth-child(8) {
-    transform:rotate(112.5deg);
-  }
-
-  .wedges:nth-child(9) {
-    transform:rotate(127.5deg);
-  }
-
-  .wedges:nth-child(10) {
-    transform:rotate(142.5deg);
-  }
-
-  .wedges:nth-child(11) {
-    transform:rotate(157.5deg);
-  }
-
-  .wedges:nth-child(12) {
-    transform:rotate(172.5deg);
-  }
-
-  .wedges:nth-child(13) {
-    transform:rotate(187.5deg);
-  }
-
-  .wedges:nth-child(14) {
-    transform:rotate(202.5deg);
-  }
-
-  .wedges:nth-child(15) {
-    transform:rotate(217.5deg);
-  }
-
-  .wedges:nth-child(16) {
-    transform:rotate(232.5deg);
-  }
-
-  .wedges:nth-child(17) {
-    transform:rotate(247.5deg);
-  }
-
-  .wedges:nth-child(18) {
-    transform:rotate(262.5deg);
-  }
-
-  .wedges:nth-child(19) {
-    transform:rotate(277.5deg);
-  }
-
-  .wedges:nth-child(20) {
-    transform:rotate(292.5deg);
-  }
-
-  .wedges:nth-child(21) {
-    transform:rotate(307.5deg);
-  }
-
-  .wedges:nth-child(22) {
-    transform:rotate(322.5deg);
-  }
-
-  .wedges:nth-child(23) {
-    transform:rotate(337.5deg);
-  }
-
-  .wedges:nth-child(24) {
-    transform:rotate(352.5deg);
+  @for $i from 1 through 24 {
+    .wedges:nth-child(#{$i}) {
+      transform: rotate(#{(-7.5+15*$i)}deg);
+    }
   }
 
   img {
