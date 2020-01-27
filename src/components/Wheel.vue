@@ -106,10 +106,10 @@ export default {
          + (this.cryptoRandom(1, 3600) / 10);
         // spinTime ranges from 3 to 5 seconds
         const spinTime = 3 + (spinDegrees - 360) / 3240 * 2;
-        // bezierY1 ranges from 0 to 1
-        const bezierY1 = 0 + (spinDegrees - 360) / 3240;
-        // bezierX2 ranges from 0.3 to 0.05
-        const bezierX2 = 0.3 - (spinDegrees - 360) / 3240 * 0.25;
+        // bezierY1 ranges from 0 to 0.75
+        const bezierY1 = 0 + (spinDegrees - 360) / 3240 * 0.75;
+        // bezierX2 ranges from 0.25 to 0.1
+        const bezierX2 = 0.25 - (spinDegrees - 360) / 3240 * 0.15;
         this.$refs.wheelOutline.style.transition = `transform ${spinTime}s`;
         this.$refs.wheelOutline.style.transitionTimingFunction = `cubic-bezier(0,${bezierY1},${bezierX2},1)`;
         this.$refs.wheelOutline.style.transform = `rotate(${this.wheelAngle + spinDegrees}deg)`;
@@ -251,9 +251,9 @@ export default {
   }
 
   .strengthMeterAnimation {
-    animation: osc 0.6s;
+    animation: osc 0.55s;
     animation-iteration-count:infinite;
-    animation-timing-function:cubic-bezier(0.67,0,1,1);
+    animation-timing-function:cubic-bezier(0.6,0,1,1);
     animation-direction: alternate;
   }
 
