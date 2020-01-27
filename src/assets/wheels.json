@@ -1,6 +1,6 @@
 {
     "normalRound2019": {
-        "values": [2500, 500, 900, 700, 600, 650, 500, 700, "10000", 600, 550, 500, 600, "Bankrupt", 650, "Free_Play", 700, "Lose_a_Turn", 800, 500, 650, 500, 900, "Bankrupt"],
-        "colors": [null, "Green", "Yellow", "Red", "Blue", "Orange", "Purple", "Yellow", null, "Red", "Blue", "Green", "Pink", null, "Purple", null, "Blue", null, "Red", "Purple", "Pink", "Green", "Orange", null]
+        "values": ["Bankrupt", 900, 500, 650, 500, 800, "Lose_a_Turn", 700, "Free_Play", 650, "Bankrupt", 600, 500, 550, 600, "10000", 700, 500, 650, 600, 700, 900, 500, 2500],
+        "colors": [null, "Orange", "Green", "Pink", "Purple", "Red", null, "Blue", null, "Purple", null, "Pink", "Green", "Blue", "Red", null, "Yellow", "Purple", "Orange", "Blue", "Red", "Yellow", "Green", null]
     }
 }

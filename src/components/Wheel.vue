@@ -74,7 +74,7 @@ export default {
     generateValuesMatrix() {
       this.valuesMatrix = [];
       const wheelSet = 'normalRound2019';
-      for (let i = 23; i > -1; i -= 1) {
+      for (let i = 0; i < 24; i += 1) {
         if (wheels[wheelSet].values[i] === '10000') {
           this.valuesMatrix.push('Bankrupt', '10000', 'Bankrupt');
         } else {
@@ -91,24 +91,29 @@ export default {
     },
     spin() {
       if (!this.isSpinning && this.isStrengthening) {
+        // Set event markers
         this.isStrengthening = false;
         this.isSpinning = true;
+        // Determine strength via percent of total width
         const strengthMeterWidth = parseFloat(window.getComputedStyle(this.$refs.strengthMeter).getPropertyValue('width'));
-        const strengthMeterPercent = Math.round(strengthMeterWidth / 250 * 1000) / 10;
+        const strengthMeterPercent = Math.ceil(strengthMeterWidth / 250 * 100);
+        // Write the strength and percent to display
         this.$refs.strengthMeter.style.width = `${strengthMeterWidth}px`;
         this.$refs.strengthPercentage.innerHTML = `${strengthMeterPercent}%`;
-        const spinDegrees = 3600 + (32400 * strengthMeterPercent / 100)
-         + this.cryptoRandom(0, 3599);
+        // Determine spin degrees based on strength and randomness
+        // spinDegrees ranges from 360.1 to 3600
+        const spinDegrees = 360 + (2880 * strengthMeterPercent / 100)
+         + (this.cryptoRandom(1, 3600) / 10);
         // spinTime ranges from 3 to 5 seconds
-        const spinTime = 3 + (spinDegrees - 3600) / 35999 * 2;
+        const spinTime = 3 + (spinDegrees - 360) / 3240 * 2;
         // bezierY1 ranges from 0 to 1
-        const bezierY1 = 0 + (spinDegrees - 3600) / 35999;
+        const bezierY1 = 0 + (spinDegrees - 360) / 3240;
         // bezierX2 ranges from 0.3 to 0.05
-        const bezierX2 = 0.3 - (spinDegrees - 3600) / 35999 * 0.25;
+        const bezierX2 = 0.3 - (spinDegrees - 360) / 3240 * 0.25;
         this.$refs.wheelOutline.style.transition = `transform ${spinTime}s`;
         this.$refs.wheelOutline.style.transitionTimingFunction = `cubic-bezier(0,${bezierY1},${bezierX2},1)`;
-        this.$refs.wheelOutline.style.transform = `rotate(${this.wheelAngle + spinDegrees / 10}deg)`;
-        this.wheelAngle += spinDegrees / 10;
+        this.$refs.wheelOutline.style.transform = `rotate(${this.wheelAngle + spinDegrees}deg)`;
+        this.wheelAngle += spinDegrees;
         this.determineValue(this.wheelAngle);
         this.wheelTimeout = setTimeout(() => { this.isSpinning = false; }, spinTime * 1000 + 100);
       }
@@ -314,7 +319,7 @@ export default {
 
   @for $i from 1 through 24 {
     .wedges:nth-child(#{$i}) {
-      transform: rotate(#{(-7.5+15*$i)}deg);
+      transform: rotate(#{(367.5-15*$i)}deg);
     }
   }
 
