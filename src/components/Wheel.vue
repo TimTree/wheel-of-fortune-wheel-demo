@@ -24,7 +24,6 @@
     <div class="aboutFooter">
       <p>©2020 Games by Tim.
          <a href='https://github.com/TimTree/wheel-of-fortune-wheel-demo' target='_blank'>Source</a></p>
-      <p><a href='https://forms.gle/oBiGSo1aivxQbdHp7' target='_blank'>Complete the survey!</a></p>
       <p style="font-size:10px;">"Wheel of Fortune" is a registered trademark of Califon
          Productions, Inc, which was not involved in the production of, and does not endorse, this
           product. For more information about the game show, visit www.wheeloffortune.com.</p>
@@ -101,17 +100,16 @@ export default {
         this.$refs.strengthMeter.style.width = `${strengthMeterWidth}px`;
         this.$refs.strengthPercentage.innerHTML = `${strengthMeterPercent}%`;
         // Determine spin degrees based on strength and randomness
-        // spinDegrees ranges from 360.1 to 3600
-        const spinDegrees = 360 + (2880 * strengthMeterPercent / 100)
+        // spinDegrees ranges from 360.1 to 2160
+        const spinDegrees = 360 + (1800 * strengthMeterPercent / 100)
          + (this.cryptoRandom(1, 3600) / 10);
-        // spinTime ranges from 3 to 5 seconds
-        const spinTime = 3 + (spinDegrees - 360) / 3240 * 2;
-        // bezierY1 ranges from 0 to 0.75
-        const bezierY1 = 0 + (spinDegrees - 360) / 3240 * 0.75;
-        // bezierX2 ranges from 0.25 to 0.1
-        const bezierX2 = 0.25 - (spinDegrees - 360) / 3240 * 0.15;
+        // spinTime ranges from 3.5 to 6 seconds
+        const spinTime = 3.5 + (spinDegrees - 360) / 2160 * 2.5;
+        // bezierX2 ranges from 0.2 to 0
+        const bezierX2 = 0.2 - (spinDegrees - 360) / 2160 * 0.2;
         this.$refs.wheelOutline.style.transition = `transform ${spinTime}s`;
-        this.$refs.wheelOutline.style.transitionTimingFunction = `cubic-bezier(0,${bezierY1},${bezierX2},1)`;
+        this.$refs.wheelOutline.style.transitionTimingFunction = `cubic-bezier(0.25,0.1,${bezierX2},1)`;
+        // this.$refs.wheelOutline.style.transitionTimingFunction = 'cubic-bezier(0.3,0,0.25,1)';
         this.$refs.wheelOutline.style.transform = `rotate(${this.wheelAngle + spinDegrees}deg)`;
         this.wheelAngle += spinDegrees;
         this.determineValue(this.wheelAngle);
@@ -303,7 +301,7 @@ export default {
   .aboutFooter {
     position:absolute;
     left:935px;
-    top:510px;
+    top:530px;
     width:300px;
     color:$white-text-color;
     z-index:2;
