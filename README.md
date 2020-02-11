@@ -19,9 +19,9 @@ Wheel of Fortune for PowerPoint's wheel took two clicks - one to spin, and one t
 * Uses the [crypto-random API](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues) to securely determine where the wheel stops
 * Can programmatically tell what value the wheel landed at
 
-## Take the survey!
+## Survey
 
-I'm gathering feedback on the wheel demo to figure out how to further improve the wheel. [Click here for the survey](https://forms.gle/oBiGSo1aivxQbdHp7).
+From January 20 to February 10, 2020, I ran a survey on the wheel demo to figure out how to further improve the wheel. [Click here for a summary of the survey results.](https://www.gamesbytim.com/2020/02/wheel-of-fortune-wheel-demo-survey.html)
 
 ## To Do
 
