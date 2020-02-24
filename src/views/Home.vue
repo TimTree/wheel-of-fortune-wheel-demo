@@ -1,7 +1,9 @@
 <template>
+  <transition name="fade" appear>
   <div class="slide">
     <Wheel />
   </div>
+  </transition>
 </template>
 
 <script>
@@ -24,7 +26,6 @@ export default {
   .slide {
     height:100%;
     overflow: hidden;
-    background-image: $primary-bg;
     display:flex;
     align-items:center;
     justify-content:center;

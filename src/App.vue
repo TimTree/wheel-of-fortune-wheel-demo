@@ -45,6 +45,7 @@ html {
   width: 1280px;
   height: 720px;
   overflow:hidden;
+  background-image: $primary-bg;
 }
 
 .fullscreenToggle {
@@ -97,6 +98,14 @@ Worse, there's no known way to remove the blur on desktop Safari
 with non-retina displays. */
 .workaroundChromeBlur {
   z-index: 9999;
+}
+
+.fade-enter-active {
+  transition: opacity .3s ease-in;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>
 

@@ -1,7 +1,9 @@
 <template>
+  <transition name="fade" appear>
   <div class="slide">
     <h1>This is an about page</h1>
   </div>
+  </transition>
 </template>
 
 <style lang="scss" scoped>
