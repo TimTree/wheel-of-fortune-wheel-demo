@@ -12,8 +12,8 @@
 </template>
 
 <style lang="scss">
-@import url('https://rsms.me/inter/inter.css');
-html { font-family: 'Inter', sans-serif; }
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=PT+Sans:wght@400;700&display=swap');
+html { font-family: 'Noto Sans', sans-serif; }
 
 html {
   -ms-text-size-adjust: 100%;

@@ -27,10 +27,6 @@
       <p style="font-size:10px;">"Wheel of Fortune" is a registered trademark of Califon
          Productions, Inc, which was not involved in the production of, and does not endorse, this
           product. For more information about the game show, visit www.wheeloffortune.com.</p>
-      <p style="font-size:10px;">Wheel wedges created by
-         <a href='http://buyavowel.boards.net/thread/6608/all-wheel-wedges' target='_blank'>MarioGS</a>/
-        <a href='https://www.deviantart.com/wheelgenius' target='_blank'>wheelgenius</a>,
-         used with permission.</p>
     </div>
     <div class="wheelTicker">
     </div>
@@ -38,7 +34,16 @@
      workaroundChromeBlur : isSpinning}"
      v-touch:start="mouseDown" v-touch:end="spin" ref="wheelOutline">
       <div class="wedges" v-for="wedge in generateWedges()" v-bind:key="wedge.id">
-        <img :src="wedge" />
+        <span :style="{color: wedge[0], display: 'flex', justifyContent: 'center'}">
+          <svg width="116.69" height="271.51" version="1.1" viewBox="0 0 30.874 71.838" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(-101.62 -74.108)">
+            <path transform="rotate(-97.5)"
+            d="m-123.46 90.941a82.55 82.55 0 0 1-2.8128 21.366"
+            fill="none" stroke="currentColor" stroke-width="71.438"/>
+          </g>
+          </svg>
+          <img :src="wedge[1]"/>
+        </span>
       </div>
     </div>
   </div>
@@ -46,6 +51,9 @@
 
 <script>
 import wheels from '@/assets/wheels.json';
+// 2500 = #69dff9
+// 3500 = #ff2fab
+// 5000 = #ddd
 
 export default {
   data() {
@@ -59,16 +67,12 @@ export default {
   methods: {
     generateWedges() {
       const wheelSet = 'normalRound2019';
-      const specialWedges = [2500, 3500, 5000, '10000', 'Bankrupt', 'Lose_a_Turn', 'Free_Play', 'Express', 'Jackpot', 'Mystery'];
-      const wedgesArray = [];
+      const wedges = [];
       for (let i = 0; i < 24; i += 1) {
-        if (specialWedges.includes(wheels[wheelSet].values[i])) {
-          wedgesArray.push(`/wedges/${wheels[wheelSet].values[i]}.png`);
-        } else {
-          wedgesArray.push(`/wedges/${wheels[wheelSet].values[i]}_${wheels[wheelSet].colors[i]}.png`);
-        }
+        wedges.push([`${wheels[wheelSet].colors[i]}`, `/wedges/Wheel${wheels[wheelSet].values[i]}.svg`]);
       }
-      return wedgesArray;
+      console.log([wedges]);
+      return wedges;
     },
     generateValuesMatrix() {
       this.valuesMatrix = [];
@@ -312,7 +316,8 @@ export default {
     position:absolute;
     width: 620px;
     height: 620px;
-    text-align:center;
+    display: flex;
+    justify-content: center;
   }
 
   @for $i from 1 through 24 {
@@ -321,7 +326,9 @@ export default {
     }
   }
 
-  img {
+  svg, img {
+    position: absolute;
     height:188px;
   }
+
 </style>

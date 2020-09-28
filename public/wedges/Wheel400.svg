@@ -1,0 +1,26 @@
+<svg width="116.69" height="271.51" version="1.1" viewBox="0 0 30.874 71.838" xmlns="http://www.w3.org/2000/svg">
+ <g filter="url(#filter872)" stroke="#e0e0e0" stroke-opacity=".94" stroke-width=".33073" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal" aria-label="$">
+  <path d="m14.811 12.616q-0.54571-0.13023-1.1286-0.45889v0.43409h-1.6123v-2.6789h1.6123q0.13643 0.58292 0.56432 0.91159 0.42789 0.32867 0.9612 0.32867 0.36588 0 0.53331-0.13643 0.17364-0.14263 0.17364-0.30386 0-0.26666-0.29146-0.41548-0.29146-0.14883-0.72555-0.26666-0.42789-0.11782-0.93639-0.26045t-0.94259-0.41549q-0.42789-0.27286-0.72555-0.71315-0.29146-0.44649-0.29146-1.172 0-0.53331 0.22945-0.93639 0.22945-0.40928 0.61393-0.68834 0.39068-0.27906 0.89918-0.42789 0.5085-0.15503 1.0666-0.15503v-1.0418h1.2589v1.1968q0.30386 0.086818 0.54571 0.19844 0.24185 0.10542 0.40308 0.20464v-0.44649h1.6309v2.6169h-1.6309q-0.037208-0.25425-0.17984-0.4651-0.13643-0.21704-0.33487-0.36587-0.19224-0.15503-0.43409-0.24185-0.24185-0.093019-0.4837-0.093019-0.30386 0-0.5023 0.11782-0.19844 0.11162-0.19844 0.32867 0 0.26665 0.29766 0.40928 0.30386 0.13643 0.73795 0.26045 0.44029 0.11782 0.9612 0.26665 0.52091 0.14263 0.955 0.41549 0.44029 0.27286 0.73795 0.73175 0.29766 0.45269 0.29766 1.1906 0 0.54571-0.22945 0.9488-0.22325 0.39688-0.61393 0.66354-0.38448 0.26666-0.89298 0.40308-0.5085 0.13023-1.0666 0.15503v1.017h-1.2589z" stroke="#e0e0e0" stroke-opacity=".94" stroke-width=".33073" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal"/>
+ </g>
+ <defs>
+  <filter id="filter860" color-interpolation-filters="sRGB">
+   <feFlood flood-color="rgb(0,0,0)" flood-opacity=".32941" result="flood"/>
+   <feComposite in="flood" in2="SourceGraphic" operator="in" result="composite1"/>
+   <feGaussianBlur in="composite1" result="blur"/>
+   <feOffset dx="0.8" dy="0.8" result="offset"/>
+   <feComposite in="SourceGraphic" in2="offset" result="composite2"/>
+  </filter>
+  <filter id="filter872" color-interpolation-filters="sRGB">
+   <feFlood flood-color="rgb(0,0,0)" flood-opacity=".32941" result="flood"/>
+   <feComposite in="flood" in2="SourceGraphic" operator="in" result="composite1"/>
+   <feGaussianBlur in="composite1" result="blur"/>
+   <feOffset dx="0.8" dy="0.8" result="offset"/>
+   <feComposite in="SourceGraphic" in2="offset" result="composite2"/>
+  </filter>
+ </defs>
+ <g transform="matrix(.90678 0 0 1 1.0271 1.9627)" filter="url(#filter860)" stroke="#e0e0e0" stroke-opacity=".94" stroke-width=".34732" aria-label=" 4 0 0">
+  <path d="m8.6306 20.691 6.6664-6.9868h5.7362v7.8756h2.3255v2.2428h-2.3255v0.36174q0 0.36174 0.05168 0.54778 0.05168 0.1757 0.1757 0.25839 0.13436 0.08268 0.3204 0.09302 0.19637 0.01034 0.44442 0.01034h0.48577v3.8345h-8.6921v-3.8345h0.60979q0.54778 0 0.70281-0.23772 0.16537-0.24805 0.16537-0.65113v-0.38242h-6.6664zm2.8112 0.88885h3.8551v-4.1238z" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal"/>
+  <path d="m8.6107 38.224q0-1.8066 0.54003-3.2107 0.54984-1.4139 1.5121-2.3663 0.96223-0.96223 2.2976-1.463 1.3452-0.50075 2.926-0.50075 1.5906 0 2.926 0.50075 1.3452 0.50075 2.3074 1.463 0.96223 0.95241 1.5023 2.3663 0.54984 1.4041 0.54984 3.2107t-0.54984 3.2205q-0.54003 1.4041-1.5023 2.3663-0.96223 0.95241-2.3074 1.4532-1.3353 0.50075-2.926 0.50075-1.5808 0-2.926-0.50075-1.3353-0.50075-2.2976-1.4532-0.96223-0.96223-1.5121-2.3663-0.54003-1.4139-0.54003-3.2205zm5.6752 0q0 2.3565 0.3142 3.3874 0.32402 1.0211 1.2862 1.0211 0.97205 0 1.2862-1.0211 0.32402-1.031 0.32402-3.3874t-0.32402-3.3776q-0.3142-1.031-1.2862-1.031-0.96223 0-1.2862 1.031-0.3142 1.0211-0.3142 3.3776z" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal"/>
+  <path d="m8.9939 54.154q0-1.7116 0.5116-3.0417 0.52091-1.3395 1.4325-2.2418 0.91159-0.91159 2.1766-1.386 1.2744-0.4744 2.772-0.4744 1.5069 0 2.772 0.4744 1.2744 0.4744 2.1859 1.386 0.91159 0.90228 1.4232 2.2418 0.52091 1.3302 0.52091 3.0417t-0.52091 3.051q-0.5116 1.3302-1.4232 2.2418-0.91159 0.90228-2.1859 1.3767-1.2651 0.4744-2.772 0.4744-1.4976 0-2.772-0.4744-1.2651-0.4744-2.1766-1.3767-0.91159-0.91159-1.4325-2.2418-0.5116-1.3395-0.5116-3.051zm5.3765 0q0 2.2325 0.29766 3.2092 0.30696 0.9674 1.2185 0.9674 0.92089 0 1.2186-0.9674 0.30696-0.9767 0.30696-3.2092t-0.30696-3.1999q-0.29766-0.9767-1.2186-0.9767-0.91159 0-1.2185 0.9767-0.29766 0.9674-0.29766 3.1999z" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal"/>
+ </g>
+</svg>
