@@ -71,7 +71,6 @@ export default {
       for (let i = 0; i < 24; i += 1) {
         wedges.push([`${wheels[wheelSet].colors[i]}`, `/wedges/Wheel${wheels[wheelSet].values[i]}.svg`]);
       }
-      console.log([wedges]);
       return wedges;
     },
     generateValuesMatrix() {
