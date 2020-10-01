@@ -1,9 +1,13 @@
 <template>
   <div id="app">
     <div class="container" ref="container">
-      <div class="fullscreenToggle" v-on:click="toggleFullScreen">
-        <div class="fullscreenButtonUp" v-bind:class="{fullscreenButtonDown :
-        !fullscreenButtonStatus}" title="Toggle fullscreen">
+      <div class="topRight">
+        <div class="fullscreenToggle" v-on:click="toggleFullScreen">
+          <div class="fullscreenButtonUp" v-bind:class="{fullscreenButtonDown :
+          !fullscreenButtonStatus}" title="Toggle fullscreen">
+            <div class="fullscreenArrowSW"></div>
+            <div class="fullscreenArrowNE"></div>
+          </div>
         </div>
       </div>
       <router-view/>
@@ -48,42 +52,79 @@ html {
   background-image: $primary-bg;
 }
 
+.topRight {
+  position: absolute;
+  right: 25px;
+  top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
 .fullscreenToggle {
-  position: absolute;
-  pointer-events: auto;
-  right: 25px;
-  top: 15px;
-}
-
-.fullscreenToggleSmall {
-  position: absolute;
-  pointer-events: auto;
-  right: 25px;
-  top: 15px;
-}
-
-.fullscreenButtonUp {
-  background-image: url('assets/fullscreenUp.svg');
-}
-
-.fullscreenButtonUp:hover {
-  background-image: url('assets/fullscreenUpHover.svg');
-}
-
-.fullscreenButtonDown {
-  background-image: url('assets/fullscreenDown.svg');
-}
-
-.fullscreenButtonDown:hover {
-  background-image: url('assets/fullscreenDownHover.svg');
+  position: relative;
+  width: 30px;
+  height:30px;
+  cursor: pointer;
 }
 
 .fullscreenButtonUp, .fullscreenButtonDown {
   width: 30px;
   height: 30px;
+}
+
+.fullscreenArrowSW, .fullscreenArrowNE {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  background-image: url('assets/fullscreenArrow.svg');
   background-size: contain;
   background-repeat: no-repeat;
-  cursor: pointer;
+  transition: top 0.12s, left 0.12s;
+}
+
+.fullscreenArrowSW {
+  top: 15px;
+  left: 2px;
+}
+
+.fullscreenArrowNE {
+  top: 2px;
+  left: 15px;
+  transform: rotate(180deg);
+}
+
+.fullscreenButtonUp:hover > .fullscreenArrowSW {
+  top: 17px;
+  left: 0;
+}
+
+.fullscreenButtonUp:hover > .fullscreenArrowNE {
+  top: 0;
+  left: 17px;
+}
+
+.fullscreenButtonDown > .fullscreenArrowSW {
+  top: 17px;
+  left: 0;
+  transform: rotate(180deg);
+}
+
+.fullscreenButtonDown > .fullscreenArrowNE {
+  top: 0;
+  left: 17px;
+  transform: rotate(0deg);
+}
+
+.fullscreenButtonDown:hover > .fullscreenArrowSW {
+  top: 15px;
+  left: 2px;
+}
+
+.fullscreenButtonDown:hover > .fullscreenArrowNE {
+  top: 2px;
+  left: 15px;
 }
 
 /* When an element animates in Chrome/Safari, any element with
