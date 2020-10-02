@@ -81,7 +81,6 @@ html {
   background-image: url('assets/fullscreenArrow.svg');
   background-size: contain;
   background-repeat: no-repeat;
-  transition: top 0.12s, left 0.12s;
 }
 
 .fullscreenArrowSW {
