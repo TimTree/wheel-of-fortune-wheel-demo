@@ -23,7 +23,7 @@
     </div>
     <div class="aboutFooter">
       <p>©2020 Games by Tim.
-         <a href='https://github.com/TimTree/wheel-of-fortune-wheel-demo' target='_blank'>Source</a></p>
+         <a href='https://github.com/TimTree/wheel-of-fortune-wheel-demo' target='_blank' rel="noopener noreferrer">Source code</a></p>
       <p style="font-size:10px;">"Wheel of Fortune" is a registered trademark of Califon
          Productions, Inc, which was not involved in the production of, and does not endorse, this
           product. For more information about the game show, visit www.wheeloffortune.com.</p>
@@ -178,6 +178,11 @@ export default {
 <style lang="scss" scoped>
   a {
     color:#aee7ff;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 
   .wheelTicker {
@@ -277,7 +282,7 @@ export default {
     color:#000;
     font-size:27px;
     font-weight:700;
-    width:200px;
+    width:210px;
     text-align:center;
     border-radius:8px;
   }
