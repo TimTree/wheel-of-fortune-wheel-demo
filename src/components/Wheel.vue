@@ -1,25 +1,18 @@
 <template>
   <div>
+    <audio ref="spinSound" preload="auto">
+    <source src="@/assets/spin.mp3" type="audio/mpeg">
+    </audio>
     <div class="demoTitle">
       Wheel of Fortune for Web - Wheel Demo
     </div>
-    <div class="strength">
-      STRENGTH
-      <div class="strengthBox">
-        <div class="strengthMeter" ref="strengthMeter"
-        v-bind:class="{strengthMeterAnimation : isStrengthening}">
-        </div>
-      </div>
-      <div class="strengthPercentage" ref="strengthPercentage">
-      </div>
-    </div>
-    <div class="wheelValue" v-show="!isStrengthening && !isSpinning && wheelAngle > 0">
+    <div class="wheelValue" v-show="!isSpinning && wheelAngle > 0">
       You landed on
       <div class="amount" ref="amount">
       </div>
     </div>
     <div class="wheelInstructions">
-      Click/hold the wheel to spin!
+      Click the wheel to spin!
     </div>
     <div class="aboutFooter">
       <p>©2020 Games by Tim.
@@ -30,12 +23,12 @@
     </div>
     <div class="wheelTicker">
     </div>
-    <div class="wheelOutline" v-bind:class="{charging : isStrengthening, noClick : isSpinning,
+    <div class="wheelOutline" v-bind:class="{noClick : isSpinning,
      workaroundChromeBlur : isSpinning}"
-     v-touch:start="mouseDown" v-touch:end="spin" ref="wheelOutline">
+     v-on:mousedown="spin" ref="wheelOutline">
       <div class="wedges" v-for="wedge in generateWedges()" v-bind:key="wedge.id">
         <span :style="{color: wedge[0], display: 'flex', justifyContent: 'center'}">
-          <svg width="116.69" height="271.51" version="1.1" viewBox="0 0 30.874 71.838" xmlns="http://www.w3.org/2000/svg">
+          <svg width="116.69" height="271.51" version="1.1" viewBox="0 0 30.874 71.838">
           <g transform="translate(-101.62 -74.108)">
             <path transform="rotate(-97.5)"
             d="m-123.46 90.941a82.55 82.55 0 0 1-2.8128 21.366"
@@ -59,7 +52,7 @@ export default {
   data() {
     return {
       wheelAngle: 0,
-      isStrengthening: false,
+      isKeyDown: false,
       isSpinning: false,
       valuesMatrix: [],
     };
@@ -85,34 +78,16 @@ export default {
         }
       }
     },
-    mouseDown() {
-      if (!this.isSpinning && !this.isStrengthening) {
-        this.$refs.strengthPercentage.innerHTML = '';
-        this.isStrengthening = true;
-      }
-    },
     spin() {
-      if (!this.isSpinning && this.isStrengthening) {
+      if (!this.isSpinning) {
+        this.$refs.spinSound.play();
         // Set event markers
-        this.isStrengthening = false;
         this.isSpinning = true;
-        // Determine strength via percent of total width
-        const strengthMeterWidth = parseFloat(window.getComputedStyle(this.$refs.strengthMeter).getPropertyValue('width'));
-        const strengthMeterPercent = Math.ceil(strengthMeterWidth / 250 * 100);
-        // Write the strength and percent to display
-        this.$refs.strengthMeter.style.width = `${strengthMeterWidth}px`;
-        this.$refs.strengthPercentage.innerHTML = `${strengthMeterPercent}%`;
-        // Determine spin degrees based on strength and randomness
-        // spinDegrees ranges from 360.1 to 2160
-        const spinDegrees = 360 + (1800 * strengthMeterPercent / 100)
-         + (this.cryptoRandom(1, 3600) / 10);
-        // spinTime ranges from 3.5 to 6 seconds
-        const spinTime = 3.5 + (spinDegrees - 360) / 2160 * 2.5;
-        // bezierX2 ranges from 0.2 to 0
-        const bezierX2 = 0.2 - (spinDegrees - 360) / 2160 * 0.2;
+        // Determine spin degrees by the 0.1
+        const spinDegrees = 1800 + (this.cryptoRandom(1, 3600) / 10);
+        const spinTime = 3.7;
         this.$refs.wheelOutline.style.transition = `transform ${spinTime}s`;
-        this.$refs.wheelOutline.style.transitionTimingFunction = `cubic-bezier(0.25,0.1,${bezierX2},1)`;
-        // this.$refs.wheelOutline.style.transitionTimingFunction = 'cubic-bezier(0.3,0,0.25,1)';
+        this.$refs.wheelOutline.style.transitionTimingFunction = 'cubic-bezier(0.2,0.05,0,1)';
         this.$refs.wheelOutline.style.transform = `rotate(${this.wheelAngle + spinDegrees}deg)`;
         this.wheelAngle += spinDegrees;
         this.determineValue(this.wheelAngle);
@@ -146,27 +121,29 @@ export default {
   },
   created() {
     window.addEventListener('keydown', (e) => {
-      if (e.keyCode === 32) {
-        this.mouseDown();
+      if (!this.isKeyDown) {
+        this.isKeyDown = true;
+        if (e.keyCode === 32) {
+          this.spin();
+        }
       }
     });
-    window.addEventListener('keyup', (e) => {
-      if (e.keyCode === 32) {
-        this.spin();
-      }
+    window.addEventListener('keyup', () => {
+      this.isKeyDown = false;
     });
     this.generateValuesMatrix();
   },
   beforeDestroy() {
     window.removeEventListener('keydown', (e) => {
-      if (e.keyCode === 32) {
-        this.mouseDown();
+      if (!this.isKeyDown) {
+        this.isKeyDown = true;
+        if (e.keyCode === 32) {
+          this.spin();
+        }
       }
     });
-    window.removeEventListener('keyup', (e) => {
-      if (e.keyCode === 32) {
-        this.spin();
-      }
+    window.removeEventListener('keyup', () => {
+      this.isKeyDown = false;
     });
   },
   destroyed() {
@@ -221,10 +198,6 @@ export default {
     background-image: radial-gradient(#2b9377 28%, #b39350 28%);
   }
 
-  .charging, .charging:hover {
-    background-image: radial-gradient(#2b9377 28%, #c24130 28%);
-  }
-
   .noClick {
     cursor:default;
   }
@@ -232,38 +205,6 @@ export default {
   .noClick:hover {
     background-image: radial-gradient(#2b9377 28%, #717a85 28%);
   }
-
-  .strength {
-    position:absolute;
-    left:30px;
-    top:100px;
-    color:$white-text-color;
-  }
-
-  .strengthBox {
-    width:250px;
-    height:32px;
-    border-left:2px solid #c0c0c0;
-    border-right:2px solid #c0c0c0;
-    margin-top:10px;
-    display:flex;
-    align-items:center;
-  }
-
-  .strengthMeter {
-    height:24px;
-    width:0px;
-    background:orange;
-  }
-
-  .strengthMeterAnimation {
-    animation: osc 0.55s;
-    animation-iteration-count:infinite;
-    animation-timing-function:cubic-bezier(0.6,0,1,1);
-    animation-direction: alternate;
-  }
-
-  @keyframes osc {0%{width:0px;} 100%{width:250px;}}
 
   .demoTitle {
     position:absolute;

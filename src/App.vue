@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <div class="container" ref="container">
-      <div class="topRight">
+      <div class="topRight" v-bind:class="{topRightSmall :
+          !this.$store.state.isTitleSlide}">
+        <div class="guideButton" v-if="!this.$store.state.isTitleSlide"
+         href="#" target="_blank" title="Guide">?</div>
         <div class="fullscreenToggle" v-on:click="toggleFullScreen">
           <div class="fullscreenButtonUp" v-bind:class="{fullscreenButtonDown :
           !fullscreenButtonStatus}" title="Toggle fullscreen">
@@ -26,6 +29,7 @@ html {
   -webkit-font-smoothing: antialiased;
   height: 100%;
   line-height:normal;
+  color:$white-text-color;
 }
 
 * {
@@ -35,6 +39,12 @@ html {
   -ms-user-select: none;
   user-select: none;
   touch-action: manipulation;
+}
+
+input {
+  -webkit-touch-callout: default; /* iOS Safari */
+  -webkit-user-select: text; /* Safari */
+  user-select: text;
 }
 
 #app {
@@ -60,6 +70,12 @@ html {
   align-items: center;
   justify-content: center;
   flex-direction: row;
+}
+
+.topRightSmall {
+  right: 0;
+  top: -1px;
+  transform: scale(0.5);
 }
 
 .fullscreenToggle {
@@ -124,6 +140,19 @@ html {
 .fullscreenButtonDown:hover > .fullscreenArrowNE {
   top: 2px;
   left: 15px;
+}
+
+.guideButton {
+  font-weight: 700;
+  font-size: 30px;
+  color: #e0e0e0;
+  margin-right: 36px;
+  cursor: pointer;
+  transition: color 0.12s;
+}
+
+.guideButton:hover {
+  color: rgb(253,207,18);
 }
 
 /* When an element animates in Chrome/Safari, any element with
@@ -203,6 +232,9 @@ export default {
     this.onResize();
     document.addEventListener('fullscreenchange', this.onFullScreenChange, false);
     document.addEventListener('webkitfullscreenchange', this.onFullScreenChange, false);
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    // eslint-disable-next-line no-unused-vars
+    const audioCtx = new AudioContext();
   },
 
   beforeDestroy() {

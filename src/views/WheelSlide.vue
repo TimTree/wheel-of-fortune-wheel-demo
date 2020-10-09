@@ -11,13 +11,16 @@
 import Wheel from '@/components/Wheel.vue';
 
 export default {
-  name: 'home',
+  name: 'wheelSlide',
   components: {
     Wheel,
   },
   data() {
     return {
     };
+  },
+  created() {
+    this.$store.commit('isTitleSlide', true);
   },
 };
 </script>

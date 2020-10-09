@@ -10,11 +10,9 @@
 
 Here you'll find a tech demo of the wheel I was going to use for Wheel of Fortune for Web, the upcoming replacement for [Wheel of Fortune for PowerPoint](https://www.gamesbytim.com/wheel-of-fortune-for-powerpoint/).
 
-Prior to the 2020 pandemic, I thought it'd be cool to have a wheel players can control via a strength meter. Now that most people play over video call, meaning the host has to spin the wheel for players, it no longer makes sense to keep the strength meter.
+Compared to the PowerPoint wheel, the Web wheel starts spinning from where the wheel last landed. It also uses the [crypto-random API](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues) to securely determine where the wheel stops.
 
-Therefore, the wheel mechanism for Wheel of Fortune for Web will most likely use one-click-to-spin, just like how it's done with the current version of Wheel of Fortune for PowerPoint. As it turns out, one-click-to-spin makes gameplay faster (fixed wheel spin time, don't need to wait for players to charge the strength meter) and will be easier to develop (no need to worry about varying spin sound effects based on wheel strength).
-
-Alas, I'll leave the strength meter wheel in this demo for posterity's sake. Now I'm using the demo to test out my **custom-made wheel wedges**.
+Currently I'm using the demo to test out my **custom-made wheel wedges**.
 
 Currently, Wheel of Fortune for PowerPoint utilizes wheel wedges designed by [MarioGS](https://buyavowel.boards.net/thread/6608/all-wheel-wedges) and [wheelgenius](hhttps://www.deviantart.com/wheelgenius). Their wheel wedges look spot-on to the actual show's, but they have caveats:
 
@@ -35,7 +33,6 @@ It's not that relevant anymore, but from January 20 to February 10, 2020, I ran 
 
 * Add multiple wheel types to choose from
 * Add the wheel's second layer (wild card, Mystery wedge, etc)
-* Add sound effects to the wheel
 
 Note that I'm long ways away from releasing Wheel of Fortune for Web. I'm just sharing these types of demos in the meantime.
 

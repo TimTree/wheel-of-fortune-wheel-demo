@@ -18,3 +18,16 @@
     color:$white-text-color;
   }
 </style>
+
+<script>
+
+export default {
+  data() {
+    return {
+    };
+  },
+  created() {
+    this.$store.commit('isTitleSlide', false);
+  },
+};
+</script>
