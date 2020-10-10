@@ -23,20 +23,21 @@
     </div>
     <div class="wheelTicker">
     </div>
-    <div class="wheelOutline" v-bind:class="{noClick : isSpinning,
-     workaroundChromeBlur : isSpinning}"
-     v-on:mousedown="spin" ref="wheelOutline">
-      <div class="wedges" v-for="wedge in generateWedges()" v-bind:key="wedge.id">
-        <span :style="{color: wedge[0], display: 'flex', justifyContent: 'center'}">
-          <svg width="116.69" height="271.51" version="1.1" viewBox="0 0 30.874 71.838">
-          <g transform="translate(-101.62 -74.108)">
-            <path transform="rotate(-97.5)"
-            d="m-123.46 90.941a82.55 82.55 0 0 1-2.8128 21.366"
-            fill="none" stroke="currentColor" stroke-width="71.438"/>
-          </g>
-          </svg>
-          <img :src="wedge[1]"/>
-        </span>
+    <div class="wheelSpinRegion">
+      <div class="clickSpinArea" v-bind:class="{noClick : isSpinning}" v-on:mousedown="spin"></div>
+      <div class="wheelOutline" ref="wheelOutline">
+        <div class="wedges" v-for="wedge in generateWedges()" v-bind:key="wedge.id">
+          <span :style="{color: wedge[0], display: 'flex', justifyContent: 'center'}">
+            <svg width="116.69" height="271.51" version="1.1" viewBox="0 0 30.874 71.838">
+            <g transform="translate(-101.62 -74.108)">
+              <path transform="rotate(-97.5)"
+              d="m-123.46 90.941a82.55 82.55 0 0 1-2.8128 21.366"
+              fill="none" stroke="currentColor" stroke-width="71.438"/>
+            </g>
+            </svg>
+            <img :src="wedge[1]"/>
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -84,7 +85,7 @@ export default {
         // Set event markers
         this.isSpinning = true;
         // Determine spin degrees by the 0.1
-        const spinDegrees = 1080 + (this.cryptoRandom(1, 3600) / 10);
+        const spinDegrees = 360 * 2 + (this.cryptoRandom(1, 3600) / 10);
         const spinTime = 3.7;
         this.$refs.wheelOutline.style.transition = `transform ${spinTime}s`;
         this.$refs.wheelOutline.style.transitionTimingFunction = 'cubic-bezier(0.2,0.05,0.1,1)';
@@ -154,7 +155,7 @@ export default {
 
 <style lang="scss" scoped>
   a {
-    color:#aee7ff;
+    color: #aee7ff;
     text-decoration: none;
   }
 
@@ -163,102 +164,115 @@ export default {
   }
 
   .wheelTicker {
-    position:absolute;
+    position: absolute;
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
     width:0;
     height:0;
-    top:22px;
+    top: 22px;
     border-left: 13px solid transparent;
     border-right: 13px solid transparent;
-    border-top: 39px solid #f8f8f8;
-    z-index:10000;
+    border-top: 39px solid #eee;
+    z-index: 10000;
 
+  }
+
+  .wheelSpinRegion {
+    position: relative;
+    width: 636px;
+    height: 636px;
+  }
+
+  .clickSpinArea {
+    position: absolute;
+    cursor: pointer;
+    height: 636px;
+    width: 636px;
+    border-radius: 50%;
+    z-index: 10000;
   }
 
   .wheelOutline {
-    position:relative;
-    width:630px;
-    height:630px;
-    background:#62666b;
+    position: absolute;
+    width: 630px;
+    height: 630px;
+    background: #62666b;
     background-image: radial-gradient(#2b9377 28%, #717a85 28%);
-    border-radius:315px;
-    border:3px solid #111;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    cursor: pointer;
-    overflow:hidden;
+    border-radius: 315px;
+    border: 3px solid #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 9999;
   }
-
- .wheelOutline:hover {
+  .clickSpinArea:hover + .wheelOutline {
     background-image: radial-gradient(#2b9377 28%, #b39350 28%);
   }
-
   .noClick {
-    cursor:default;
+    cursor: default;
   }
 
-  .noClick:hover {
+  .noClick:hover + .wheelOutline {
     background-image: radial-gradient(#2b9377 28%, #717a85 28%);
   }
 
   .demoTitle {
-    position:absolute;
-    left:30px;
-    top:20px;
-    color:$white-text-color;
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    color: $white-text-color;
     transition: transform 2s;
   }
 
   .wheelInstructions {
-    position:absolute;
-    left:970px;
-    top:100px;
-    background:rgba(255,255,255,0.3);
-    padding:10px 20px;
-    color:#000;
-    font-size:27px;
-    font-weight:700;
-    width:210px;
-    text-align:center;
-    border-radius:8px;
+    position: absolute;
+    left: 970px;
+    top: 100px;
+    background: rgba(255,255,255,0.3);
+    padding: 10px 20px;
+    color: #000;
+    font-size: 27px;
+    font-weight: 700;
+    width: 210px;
+    text-align: center;
+    border-radius: 8px;
   }
 
   .wheelValue {
-    position:absolute;
-    left:38px;
-    top:310px;
-    background:rgba(255,255,255,0.3);
-    padding:10px 20px;
-    color:#000;
-    font-size:18px;
-    font-weight:700;
-    width:200px;
-    text-align:center;
-    border-radius:8px;
+    position: absolute;
+    left: 38px;
+    top: 310px;
+    background: rgba(255,255,255,0.3);
+    padding: 10px 20px;
+    color: #000;
+    font-size: 18px;
+    font-weight: 700;
+    width: 200px;
+    text-align: center;
+    border-radius: 8px;
   }
 
   .amount {
-    font-size:34px;
-    margin-top:5px;
+    font-size: 34px;
+    margin-top: 5px;
   }
 
   .aboutFooter {
-    position:absolute;
-    left:935px;
-    top:530px;
-    width:300px;
-    color:$white-text-color;
-    z-index:2;
-    padding:10px;
+    position: absolute;
+    left: 935px;
+    top: 530px;
+    width: 300px;
+    color: $white-text-color;
+    z-index: 2;
+    padding: 10px;
   }
 
   .wedges {
-    position:absolute;
+    position: absolute;
     width: 620px;
     height: 620px;
     display: flex;
@@ -273,7 +287,6 @@ export default {
 
   svg, img {
     position: absolute;
-    height:188px;
+    height: 188px;
   }
-
 </style>

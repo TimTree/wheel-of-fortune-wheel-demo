@@ -27,11 +27,11 @@ export default {
 
 <style lang="scss" scoped>
   .slide {
-    height:100%;
+    height: 100%;
     overflow: hidden;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
 </style>

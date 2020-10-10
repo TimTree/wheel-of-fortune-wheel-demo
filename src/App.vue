@@ -58,7 +58,7 @@ input {
   flex-shrink: 0;
   width: 1280px;
   height: 720px;
-  overflow:hidden;
+  overflow: hidden;
   background-image: $primary-bg;
 }
 
