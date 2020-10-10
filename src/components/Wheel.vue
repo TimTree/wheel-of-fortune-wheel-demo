@@ -84,10 +84,10 @@ export default {
         // Set event markers
         this.isSpinning = true;
         // Determine spin degrees by the 0.1
-        const spinDegrees = 1800 + (this.cryptoRandom(1, 3600) / 10);
+        const spinDegrees = 1080 + (this.cryptoRandom(1, 3600) / 10);
         const spinTime = 3.7;
         this.$refs.wheelOutline.style.transition = `transform ${spinTime}s`;
-        this.$refs.wheelOutline.style.transitionTimingFunction = 'cubic-bezier(0.2,0.05,0,1)';
+        this.$refs.wheelOutline.style.transitionTimingFunction = 'cubic-bezier(0.2,0.05,0.1,1)';
         this.$refs.wheelOutline.style.transform = `rotate(${this.wheelAngle + spinDegrees}deg)`;
         this.wheelAngle += spinDegrees;
         this.determineValue(this.wheelAngle);
