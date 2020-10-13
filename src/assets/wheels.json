@@ -1,10 +1,12 @@
 {
     "normal2019": {
-        "values": ["Bankrupt", 900, 500, 650, 500, 800, "Lose_a_Turn", 700, "Free_Play", 650, "Bankrupt", 600, 500, 550, 650, "10000", 700, 500, 650, 600, 700, 900, 500, 2500],
-        "colors": ["black", "orange", "green", "pink", "purple", "red", "white", "blue", "lightblue", "purple", "black", "pink", "green", "blue", "red", null, "yellow", "purple", "orange", "blue", "red", "yellow", "green", "sparkleblue"]
+        "values": ["Bankrupt", 900, 500, 650, 500, 800, "Lose_a_Turn", 700, "Free_Play", 650, "Bankrupt", 600, 500, 550, 600, 500, 700, 500, 650, 600, 700, 900, 500, 2500],
+        "colors": ["black", "orange", "green", "pink", "purple", "red", "white", "blue", "lightblue", "purple", "black", "pink", "green", "blue", "red", "pink", "yellow", "purple", "orange", "blue", "red", "yellow", "green", "sparkleblue"],
+        "items": [null, null, null, null, "Gift", null, null, null, null, null, null, null, "Free_Spin", null, null, "10k_Wedge", null, null, null, null, null, null, "Wild_Card", null]
     },
     "normal2013": {
-        "values": ["Bankrupt", 300, 500, 450, 500, 800, "Lose_a_Turn", 700, "Free_Play", 650, "Bankrupt", 900, 500, 350, 600, "10000", 400, 500, 800, 300, 700, 900, 500, 2500],
-        "colors": ["black", "orange", "green", "pink", "purple", "red", "white", "blue", "lightblue", "purple", "black", "pink", "green", "blue", "red", null, "yellow", "purple", "orange", "blue", "red", "yellow", "green", "sparkleblue"]
+        "values": ["Bankrupt", 300, 500, 450, 500, 800, "Lose_a_Turn", 700, "Free_Play", 650, "Bankrupt", 900, 500, 350, 600, 500, 400, 500, 800, 300, 700, 900, 500, 2500],
+        "colors": ["black", "orange", "green", "pink", "purple", "red", "white", "blue", "lightblue", "purple", "black", "pink", "green", "blue", "red", "pink", "yellow", "purple", "orange", "blue", "red", "yellow", "green", "sparkleblue"],
+        "items": [null, null, null, null, "Gift", null, null, null, null, null, null, null, "Free_Spin", null, null, "10k_Wedge", null, null, null, null, null, null, "Wild_Card", null]
     }
 }
