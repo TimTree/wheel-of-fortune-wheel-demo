@@ -24,8 +24,9 @@
     <div class="wheelTicker">
     </div>
     <div class="wheelSpinRegion">
-      <div class="clickSpinArea" v-bind:class="{noClick : isSpinning}" v-on:mousedown="spin"></div>
-      <div class="wheelOutline" ref="wheelOutline">
+      <div class="clickSpinArea" v-if="!isSpinning" v-on:mousedown="spin"></div>
+      <div class="wheelOutline" ref="wheelOutline"
+       v-bind:class="{workaroundChromeBlur : isSpinning}">
         <div class="wedges" v-for="wedge in generateWedges()" v-bind:key="wedge.id">
           <span :style="{color: wedge[0], display: 'flex', justifyContent: 'center'}">
             <svg width="116.69" height="271.51" version="1.1" viewBox="0 0 30.874 71.838">
@@ -191,7 +192,7 @@ export default {
     height: 636px;
     width: 636px;
     border-radius: 50%;
-    z-index: 10000;
+    z-index: 2;
   }
 
   .wheelOutline {
@@ -207,17 +208,10 @@ export default {
     justify-content: center;
     flex-direction: column;
     overflow: hidden;
-    z-index: 9999;
-  }
-  .clickSpinArea:hover + .wheelOutline {
-    background-image: radial-gradient(#2b9377 28%, #b39350 28%);
-  }
-  .noClick {
-    cursor: default;
   }
 
-  .noClick:hover + .wheelOutline {
-    background-image: radial-gradient(#2b9377 28%, #717a85 28%);
+  .clickSpinArea:hover + .wheelOutline {
+    background-image: radial-gradient(#2b9377 28%, #b39350 28%);
   }
 
   .demoTitle {
