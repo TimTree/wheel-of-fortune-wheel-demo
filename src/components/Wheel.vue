@@ -46,9 +46,6 @@
 
 <script>
 import wheels from '@/assets/wheels.json';
-// 2500 = #69dff9
-// 3500 = #ff2fab
-// 5000 = #ddd
 
 export default {
   data() {
@@ -64,8 +61,23 @@ export default {
     generateWedges() {
       const { wheelSet } = this;
       const wedges = [];
+      const wedgeColors = {
+        red: 'red',
+        orange: '#ff6a0e',
+        yellow: '#fff200',
+        green: '#3cb878',
+        blue: '#3bbaff',
+        purple: '#ab79db',
+        pink: '#f6999e',
+        black: 'black',
+        white: 'white',
+        lightblue: '#73fefe',
+        sparkleblue: '#69dff9',
+        sparklepink: '#ff2fab',
+        sparklesilver: '#ddd',
+      };
       for (let i = 0; i < 24; i += 1) {
-        wedges.push([`${wheels[wheelSet].colors[i]}`, `/wedges/Wheel${wheels[wheelSet].values[i]}.svg`]);
+        wedges.push([wedgeColors[`${wheels[wheelSet].colors[i]}`], `/wedges/Wheel${wheels[wheelSet].values[i]}.svg`]);
       }
       return wedges;
     },
@@ -231,14 +243,14 @@ export default {
 
   .wheelInstructions {
     position: absolute;
-    left: 970px;
+    left: 990px;
     top: 100px;
     background: rgba(255,255,255,0.3);
     padding: 10px 20px;
     color: #000;
     font-size: 27px;
     font-weight: 700;
-    width: 210px;
+    width: 200px;
     text-align: center;
     border-radius: 8px;
   }
