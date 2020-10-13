@@ -57,11 +57,12 @@ export default {
       isKeyDown: false,
       isSpinning: false,
       valuesMatrix: [],
+      wheelSet: 'normal2019',
     };
   },
   methods: {
     generateWedges() {
-      const wheelSet = 'normalRound2019';
+      const { wheelSet } = this;
       const wedges = [];
       for (let i = 0; i < 24; i += 1) {
         wedges.push([`${wheels[wheelSet].colors[i]}`, `/wedges/Wheel${wheels[wheelSet].values[i]}.svg`]);
@@ -70,7 +71,7 @@ export default {
     },
     generateValuesMatrix() {
       this.valuesMatrix = [];
-      const wheelSet = 'normalRound2019';
+      const { wheelSet } = this;
       for (let i = 0; i < 24; i += 1) {
         if (wheels[wheelSet].values[i] === '10000') {
           this.valuesMatrix.push('Bankrupt', '10000', 'Bankrupt');
@@ -136,6 +137,9 @@ export default {
     window.addEventListener('keyup', () => {
       this.isKeyDown = false;
     });
+    if (typeof this.$route.query.set !== 'undefined') {
+      this.wheelSet = this.$route.query.set;
+    }
     this.generateValuesMatrix();
   },
   beforeDestroy() {
