@@ -82,7 +82,10 @@ export default {
     },
     spin() {
       if (!this.isSpinning) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        const audioCtx = new AudioContext();
         this.$refs.spinSound.play();
+        audioCtx.close();
         // Set event markers
         this.isSpinning = true;
         // Determine spin degrees by the 0.1

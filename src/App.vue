@@ -232,9 +232,6 @@ export default {
     this.onResize();
     document.addEventListener('fullscreenchange', this.onFullScreenChange, false);
     document.addEventListener('webkitfullscreenchange', this.onFullScreenChange, false);
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    // eslint-disable-next-line no-unused-vars
-    const audioCtx = new AudioContext();
   },
 
   beforeDestroy() {
