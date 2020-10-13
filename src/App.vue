@@ -19,8 +19,8 @@
 </template>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=PT+Sans:wght@400;700&display=swap');
-html { font-family: 'Noto Sans', sans-serif; }
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;700&display=swap');
+html { font-family: 'Commissioner', sans-serif; }
 
 html {
   -ms-text-size-adjust: 100%;
@@ -28,8 +28,8 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   height: 100%;
-  line-height:normal;
-  color:$white-text-color;
+  line-height: 1.3;
+  color: $white-text-color;
 }
 
 * {
